@@ -9701,14 +9701,23 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .masthead {
-  padding-top: calc(6rem + 128px);
-  padding-bottom: 6rem;
+  vertical-align: auto;
+  padding-top: calc(6rem + 74px);
+  /* padding-bottom: 8rem; */
+  background: url('../img/whitehouse.jpg') no-repeat;
+  margin-top: 8%;
+  min-height: 800px;
+	background-size: cover;
+	background-position: center center;
+	z-index: 1;
 }
 
 .masthead .masthead-heading {
-  /* margin-top: 15% !important; */
+  vertical-align: auto;
+  /* padding-top: 18% !important; */
   font-size: 2.75rem;
   line-height: 2.75rem;
+  
 }
 
 .masthead .masthead-subheading {
@@ -9723,10 +9732,12 @@ a.text-dark:hover, a.text-dark:focus {
 
 @media (min-width: 992px) {
   .masthead {
+    vertical-align: auto;
     padding-top: calc(6rem + 104px);
     padding-bottom: 6rem;
   }
   .masthead .masthead-heading {
+    vertical-align: auto;
     font-size: 4rem;
     line-height: 3.5rem;
   }
