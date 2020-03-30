@@ -25,7 +25,9 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">U.S. Elections</a>
+      <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <img class="img-fluid" src="img/circle-usa.png" width="50px" height="50px" alt="">
+        U.S. Elections</a>
       <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
@@ -33,13 +35,16 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Portfolio</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/results">Results</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/demographics">Demographics</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/trends">Trends</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/map">Map</a>
           </li>
         </ul>
       </div>
@@ -47,26 +52,29 @@
   </nav>
 
   <!-- Masthead -->
-  <header class="masthead bg-primary text-white text-center">
-    <div class="container d-flex align-items-center flex-column">
-
-      <!-- Masthead Avatar Image -->
-      <img class="masthead-avatar mb-5" src="img/circle-usa.png" alt="">
+  <header class="masthead text-secondary text-center" style="background: url('img/whitehouse.jpg') no-repeat;background-position: bottom; margin-top: 10%;max-width: 100%;height: 100%;">
+    <div class="container">
 
       <!-- Masthead Heading -->
-      <h1 class="masthead-heading text-uppercase mb-0">U.S. Elections</h1>
+      <h1 class="masthead-heading text-uppercase mb-5">U.S. Elections</h1>
+
+      <!-- Masthead Avatar Image -->
+      <img class="masthead-avatar" src="img/circle-usa.png" alt="" style="opacity: 45%;">
+
 
       <!-- Icon Divider -->
-      <div class="divider-custom divider-light">
+      <div class="divider-custom divider-dark">
         <div class="divider-custom-line"></div>
         <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
           <i class="fas fa-star"></i>
         </div>
         <div class="divider-custom-line"></div>
       </div>
 
       <!-- Masthead Subheading -->
-      <p class="masthead-subheading font-weight-light mb-0">Graphic Artist - Web Designer - Illustrator</p>
+      <p class="masthead-subheading font-weight-light mb-0">A project for visualizing elections in the United States of America</p>
 
     </div>
   </header>
@@ -76,7 +84,7 @@
     <div class="container">
 
       <!-- Portfolio Section Heading -->
-      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2>
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Visualizations</h2>
 
       <!-- Icon Divider -->
       <div class="divider-custom">
@@ -168,42 +176,6 @@
     </div>
   </section>
 
-  <!-- About Section -->
-  <section class="page-section bg-primary text-white mb-0" id="about">
-    <div class="container">
-
-      <!-- About Section Heading -->
-      <h2 class="page-section-heading text-center text-uppercase text-white">About</h2>
-
-      <!-- Icon Divider -->
-      <div class="divider-custom divider-light">
-        <div class="divider-custom-line"></div>
-        <div class="divider-custom-icon">
-          <i class="fas fa-star"></i>
-        </div>
-        <div class="divider-custom-line"></div>
-      </div>
-
-      <!-- About Section Content -->
-      <div class="row">
-        <div class="col-lg-4 ml-auto">
-          <p class="lead">Freelancer is a free bootstrap theme created by U.S. Elections. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional SASS stylesheets for easy customization.</p>
-        </div>
-        <div class="col-lg-4 mr-auto">
-          <p class="lead">You can create your own custom avatar for the masthead, change the icon in the dividers, and add your email address to the contact form to make it fully functional!</p>
-        </div>
-      </div>
-
-      <!-- About Section Button -->
-      <div class="text-center mt-4">
-        <a class="btn btn-xl btn-outline-light" href="https://startbootstrap.com/themes/freelancer/">
-          <i class="fas fa-download mr-2"></i>
-          Free Download!
-        </a>
-      </div>
-
-    </div>
-  </section>
 
   <!-- Footer -->
   <footer class="footer text-center">
