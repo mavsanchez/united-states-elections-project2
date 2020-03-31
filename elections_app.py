@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 # import pymongo
-from scrape_nba import scrape_news, scrape_facts, scrape_featured_images, scrape_hemispheres_images, scrape_weather
+# from scrape_nba import scrape_news, scrape_facts, scrape_featured_images, scrape_hemispheres_images, scrape_weather
 
 app = Flask(__name__)
 
