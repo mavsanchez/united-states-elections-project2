@@ -67,6 +67,7 @@ body {
   color: #212529;
   text-align: left;
   background-color: #fff;
+  padding-top: 8%;
 }
 
 [tabindex="-1"]:focus {
@@ -3955,7 +3956,7 @@ input[type="button"].btn-block {
 
 .navbar {
   position: relative;
-  display: flex;
+  display: block;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
@@ -9705,7 +9706,6 @@ a.text-dark:hover, a.text-dark:focus {
   padding-top: calc(6rem + 74px);
   /* padding-bottom: 8rem; */
   background: url('../img/whitehouse.jpg') no-repeat;
-  margin-top: 8%;
   min-height: 800px;
 	background-size: cover;
 	background-position: center center;
@@ -9861,3 +9861,57 @@ form .row:first-child .floating-label-form-group {
 .copyright {
   background-color: #1a252f;
 }
+
+.content-header{
+  padding-top: 4%;
+	z-index: 1;
+}
+
+
+.post {
+  margin-top: 50px;
+  margin-right: 100px;
+  margin-left: 100px;
+}
+
+@media (max-width: 600px) {
+  .content-header{
+  padding-top: calc(1rem + 50px);
+  z-index: 1;
+  color:red;
+  }
+} 
+
+@media (min-width: 600px) {
+  .content-header{
+  padding-top: calc(1rem + 50px);
+  z-index: 1;
+  color:red;
+  }
+} 
+
+
+@media (min-width: 992px) {
+  .content-header{
+  padding-top: 1%;
+	z-index: 1;
+  color:blue;
+  }
+} 
+
+@media (min-width: 1024px) {
+  .content-header{
+  padding-top: 4%;
+	z-index: 1;
+  color:blue;
+  }
+} 
+
+@media (min-width: 1080px) {
+  .content-header{
+  padding-top: 0.5rem;
+	z-index: 1;
+  color:green;
+  }
+} 
+
