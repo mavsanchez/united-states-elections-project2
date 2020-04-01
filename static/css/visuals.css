@@ -1,0 +1,7 @@
+#map {
+    height: 800px;
+}
+
+ .leaflet-popup-content {
+    text-align: center;
+  }

@@ -11,7 +11,7 @@
   <title>US Elections</title>
   <link rel="shortcut icon" href="{{ url_for('static',filename='img/circle-usa.png') }}" type="image/x-icon">
   <!-- Custom fonts for this theme -->
-  <link href="{{ url_for('static',filename='vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+  <link href="{{ url_for('static',filename='vendor/fontawesome-free/css/all.css') }}" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
@@ -20,6 +20,7 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link href="{{ url_for('static',filename='css/freelancer.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static',filename='css/visuals.css') }}" rel="stylesheet">
   
   {% block head %}{% endblock %}
 </head>
@@ -56,25 +57,26 @@
   </nav>
 
   <div class="container">
-    <div class="row px-3">
-        
-        <div class="divider-custom divider-dark">
-          <div class="divider-custom-line"></div>
-          <div class="divider-custom-icon">
-            <header class="pt-3">
-              <h2 class="text-center">{% block page_title %}{%endblock%}</h2>
+    <div class="row justify-content-center">
+            <header class="py-3 text-center">
+              <h2>{% block page_title %}{%endblock%}</h2>
+              <div class="divider-custom-icon fa-xs">
+                <i class="fa fa-star fa-sm gold"></i>
+                <i class="fa fa-star fa-sm gold"></i>
+                <i class="fa fa-star fa-sm gold"></i>
+              </div>
             </header>
-          </div>
-          <div class="divider-custom-line"></div>
-        </div>
-        <section class="posts">
-        <h3>Title of plot</h3>
-        <p>plothere
-          <div id="plotname"></div>
-        </p>
-      </section>
-
+        <!-- <div class="divider-custom divider-dark fa-xs"> -->
+        
+      <!-- </div> -->
     </div> <!-- row -->
+
+    <div class="row px-3">
+      <div class="col-md-12 pb-4">
+          {% block content %}
+          {% endblock %}
+      </div>
+    </div>
  </div> <!-- Main body container -->
 
 
@@ -91,7 +93,9 @@
     </a>
   </div>
   
-
+  <!-- Customized JS for graphing -->
+  {% block graph_js %}
+  {% endblock %}
 
   <!-- Bootstrap core JavaScript -->
   <script src="https://code.jquery.com/jquery-3.4.1.min.js"
