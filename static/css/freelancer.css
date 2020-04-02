@@ -9774,7 +9774,10 @@ a.text-dark:hover, a.text-dark:focus {
   left: 0;
   transition: all 0.2s ease-in-out;
   opacity: 0;
-  background-color: rgba(26, 188, 156, 0.9);
+  /* background-color: rgba(26, 188, 156, 0.9); */
+  /* Changed to gold custom */
+  /* background-color: #a98860; */
+  background-color: rgba(169,136,96, 0.8)
 }
 
 .portfolio .portfolio-item .portfolio-item-caption:hover {
@@ -9804,7 +9807,8 @@ a.text-dark:hover, a.text-dark:focus {
   top: 1rem;
   font-size: 3rem;
   line-height: 3rem;
-  color: #1abc9c;
+  /* color: #1abc9c; Changed to gold */
+  color:  #a98860;
   opacity: 1;
 }
 

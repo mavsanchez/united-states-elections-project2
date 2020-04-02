@@ -15,7 +15,8 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 
 // Load in GeoJson data
 // const geoData = "static/data/Median_Household_Income_2016.geojson";
-const geoData = "static/data/gz_2010_us_050_00_500k.json";
+// const geoData = "static/data/gz_2010_us_050_00_500k.json";
+const geoData = "static/data/processed.json";
 
 let geojson;
 
@@ -25,7 +26,7 @@ d3.json(geoData, function (reponse){
   // Create a new choropleth layer
   geojson = L.choropleth(reponse,{
     // Define what  property in the features to use
-    valueProperty: 'CENSUSAREA',
+    valueProperty: 'percentwon',
     // Set color scale
     scale: ['blue', 'red'],
     // Number of breaks in step range
@@ -39,7 +40,8 @@ d3.json(geoData, function (reponse){
     },
     // Binding a pop-up to each layer
     onEachFeature: function (feature, layer) {
-      layer.bindPopup(`STATE: ${feature.properties.STATE} <br \> 2016 Median HH Income: $${feature.properties.NAME || 0}`)
+      // properties = ['year', 'state_po', 'county', 'candidate', 'party', 'candidatevotes', 'totalvotes', 'percentwon']
+      layer.bindPopup(`STATE: ${feature.properties.state_po} <br \> Candidate won: $${feature.properties.candidate || 0}`)
     }     
   }).addTo(myMap);
 
