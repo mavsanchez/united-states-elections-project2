@@ -1,2 +1,4 @@
 // API key
 const API_KEY = "pk.eyJ1IjoibWF2c2FuY2hleiIsImEiOiJjazgxdXo3c3EwdjZwM2RzYzVzaXhneDkwIn0.lEt2EK50c0SGUygATEk6pQ";
+const ALGOLIA_API_KEY_SEARCHONLY = "a519f94f53fc374f079032d1f102d341";
+const ALGOLIA_APP_ID = "plUCLHEKDAHU";

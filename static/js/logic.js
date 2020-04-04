@@ -1,9 +1,14 @@
 // Creating map object
-var myMap = L.map("map", {
-  center: [37.8, -96.9],
+
+let us_latlng = {
+  lat: 37.8,
+  lng: -96.9
+};
+
+let myMap = L.map("map", {
+  center: [us_latlng.lat, us_latlng.lng],
   zoom: 4.2
 });
-
 
 // Adding tile layer
 L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
@@ -16,25 +21,11 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 }).addTo(myMap);
 
 // Load in GeoJson data
-// const geoData = "static/data/Median_Household_Income_2016.geojson";
-// const geoData = "static/data/gz_2010_us_050_00_500k.json";
-const geoData = "static/data/processed.json";
+const geoData = "https://raw.githubusercontent.com/mavsanchez/united-states-elections-project2/master/static/data/processed.json";
 
-whatOp = d3.scaleLinear()
-  .domain([0, 100]) // unit: km
+fill_opacity = d3.scaleLinear()
+  .domain([0, 100]) 
   .range([.4, 1])
-
-
-// var scaleDem = d3.scaleLinear()
-//   .domain([0, 100])
-//   .range(['#ddd', 'blue']);
-// var linearScale = d3.scaleLinear()
-//   .domain([-10, 0, 10])
-//   .range(['red', '#ddd', 'blue']);
-// linearScale(-10);  // returns "rgb(255, 0, 0)"
-// linearScale(0);    // returns "rgb(221, 221, 221)"
-// linearScale(5);    // returns "rgb(111, 111, 238)"
-
 
 let geojson;
 
@@ -65,14 +56,14 @@ d3.json(geoData, function (response){
         case "red":
           return {
             fillColor: "#800000", 
-            fillOpacity:  whatOp(Math.abs(feature.properties.percentwon_rep-feature.properties.percentwon_dem)),   //((feature.properties.percentwon_rep/100)+.1)-.2,
+            fillOpacity:  fill_opacity(Math.abs(feature.properties.percentwon_rep-feature.properties.percentwon_dem)),  
             color: 'white',
             weight: 0.5
           }
         default:
           return {
             fillColor: "#000080",
-            fillOpacity:  whatOp(Math.abs(feature.properties.percentwon_rep-feature.properties.percentwon_dem)),  //((feature.properties.percentwon_dem / 100)+.1)-.2,
+            fillOpacity:  fill_opacity(Math.abs(feature.properties.percentwon_rep-feature.properties.percentwon_dem)),  
             color: 'white',
             weight: 0.5
           }
@@ -107,7 +98,7 @@ d3.json(geoData, function (response){
       //  <table class="table table-condensed mb-0 pb-0"><tr> <th>Candidate</th> <th>Party</th> <th>Won</th> </tr> <tr> <td scope="row">${feature.properties.candidate_dem || 0}</td> <td>${feature.properties.party_dem || 0}</td> <td>${feature.properties.percentwon_dem || 0}%</td> </tr><tr> <td scope="row">${feature.properties.candidate_rep || 0}</td> <td>${feature.properties.party_rep || 0}</td> <td>${feature.properties.percentwon_rep || 0}%</td></tr></table>`
       layer.bindTooltip(`<h6>${feature.properties.county}, ${feature.properties.state_po} </h6>
                           Total votes: ${feature.properties.totalvotes_dem.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",")}
-                       <table class="table table-condensed mb-0 pb-0"><tr> <th>Candidate</th> <th>Party</th> <th>Won</th> </tr> <tr> <td scope="row">Hillary Clintron</td> <td>Democrat</td> <td>${feature.properties.percentwon_dem || 0}%</td> </tr><tr> <td scope="row">Donal Trump</td> <td>Republican</td> <td>${feature.properties.percentwon_rep || 0}%</td></tr></table>`
+                       <table class="table table-condensed mb-0 pb-0"><tr> <th>Candidate</th> <th>Party</th> <th>Won</th> </tr> <tr> <td scope="row">Hillary Clinton</td> <td>Democrat</td> <td>${feature.properties.percentwon_dem || 0}%</td> </tr><tr> <td scope="row">Donald Trump</td> <td>Republican</td> <td>${feature.properties.percentwon_rep || 0}%</td></tr></table>`
                        )
     }     
   }).addTo(myMap);

@@ -15,13 +15,31 @@
 {% endblock %}
 
 {% block content %}
+
+<input type="search" id="input-map" class="form-control mb-2" placeholder="Search for a location (zip, name, etc)" />
 <div id="map"></div>
+
+{% endblock %}
+
+{% block credits_content %}
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h4 class="text-uppercase mt-2">Algolia</h4>
+        <p class="lead mb-2"><img class="img-fluid" src="{{ url_for('static',filename='img/search-by-algolia-light-background.svg') }}"></p>
+    </div>
+</div>
 {% endblock %}
 
 {% block graph_js %}
-    <!-- API key -->
-    <script type="text/javascript" src="{{ url_for('static',filename='js/config.js') }}"></script>
-    
+
+
+        <!-- API key -->
+<script type="text/javascript" src="{{ url_for('static',filename='js/config.js') }}"></script>
+
+    <!-- Algolia for the search only version -->
+    <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/places.js@1.18.1"></script>
+
     <!-- Heat Logic-->
     <!-- <script type="text/javascript" src="{{ url_for('static',filename='js/just-crime.js') }}"></script> -->
     
@@ -34,6 +52,7 @@
     <!-- Chloropleth Logic (Required) -->
     <script type="text/javascript" src="{{ url_for('static',filename='js/logic.js') }}"></script>
 
+    <!-- Algolia customized elections logic  -->
+    <script type="text/javascript" src="{{ url_for('static',filename='js/algolia_search.js') }}"></script>
 
 {% endblock %}
-
