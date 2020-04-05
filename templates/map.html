@@ -8,6 +8,10 @@
     integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
     crossorigin=""></script>
 <script src="https://d3js.org/d3.v4.min.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css" rel="stylesheet" />
+<link rel="stylesheet"
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css"
+    type="text/css" />
 {% endblock %}
 
 {% block page_title %}
@@ -17,11 +21,33 @@
 {% block content %}
 
 <input type="search" id="input-map" class="form-control mb-2" placeholder="Search for a location (zip, name, etc)" />
-<div id="map"></div>
+
+<!-- <div class="btn-group btn-group-toggle gold" data-toggle="buttons">
+    <label class="btn btn-secondary">
+        <input type="radio" name="options" id="results08" autocomplete="off"> 2016
+    </label>
+    <label class="btn btn-secondary">
+        <input type="radio" name="options" id="results12" autocomplete="off"> 2012
+    </label>
+    <label class="btn btn-secondary">
+        <input type="radio" name="options" id="results16" autocomplete="off"> 2018
+    </label>
+</div> -->
+
+<div class="btn-group align-content-sm-center" role="group" aria-label="Year">
+    <input class="btn btn-secondary" type="button" value="2016" id="results16">
+    <input class="btn btn-secondary" type="button" value="2012" id="results12">
+    <input class="btn btn-secondary" type="button" value="2008" id="results08">
+</div>
+
+<div class="mt-1" id="map"></div>
 
 {% endblock %}
 
 {% block credits_content %}
+
+
+
 <div class="row">
     <div class="col-md-12 text-center">
         <h4 class="text-uppercase mt-2">Algolia</h4>
@@ -49,7 +75,7 @@
     <!-- Leaflet heatmap plugin-->
     <script type="text/javascript" src="{{ url_for('static',filename='js/leaflet-heat.js') }}"></script>
     
-    <!-- Chloropleth Logic (Required) -->
+    <!-- MB Chloropleth Logic (Required) -->
     <script type="text/javascript" src="{{ url_for('static',filename='js/logic.js') }}"></script>
 
     <!-- Algolia customized elections logic  -->
