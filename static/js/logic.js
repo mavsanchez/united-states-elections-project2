@@ -25,8 +25,8 @@ L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={
 }).addTo(myMap);
 
 // Load in GeoJson data
-// const geoData = "https://raw.githubusercontent.com/mavsanchez/united-states-elections-project2/master/static/data/processed.json";
-const geoData = "static/data/processed.json";
+const geoData = "https://raw.githubusercontent.com/mavsanchez/united-states-elections-project2/master/static/data/processed.json"; //For production
+// const geoData = "static/data/processed.json"; For QA
 
 fill_opacity = d3.scaleLinear()
   .domain([0, 100])
