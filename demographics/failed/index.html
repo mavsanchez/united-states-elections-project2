@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dropdown Events</title>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h2>2016 Election Exit Poll (24558 responses) </h2>
+    <select id="selDataset" onChange="getData(this.value)">
+        <option value="gender">Gender</option>
+        <option value="age">Age Range</option>
+        <option value="education">Education</option>
+        <option value="income">Income</option>
+    </select>
+    <div id="bar"></div>
+
+    <script src="data.js"></script>
+    <script src="demographicsBar.js"></script>
+</body>
+</html>
