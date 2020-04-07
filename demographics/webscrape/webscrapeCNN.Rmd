@@ -1,0 +1,108 @@
+---
+output: 
+  html_notebook:
+      theme: yeti
+      toc: yes
+      toc_depth: 4
+      toc_float: yes
+---
+
+```{r}
+library(rvest)
+library(tidyverse)
+library(stringr)
+library(ggalt)
+```
+
+```{r message=FALSE, eval = FALSE}
+rD <- RSelenium::rsDriver(browser = "chrome", verbose = FALSE)
+remDr <- rD[["client"]]
+```
+
+```{r eval = FALSE}
+getExitPoll_df <- function(webpage){
+  html <- read_html(webpage) 
+  questions <- html %>% html_nodes(".exit-poll-table") %>% html_nodes(".exit-poll__question") %>% html_text() 
+  questions_id <- 1:length(questions)
+
+  responses <- html %>% html_nodes(".exit-poll-table") %>%
+    html_nodes(".exit-poll__table")%>%
+    html_table() %>% map(., function(x){
+      colnames(x)[1] <- 'options' 
+      x %>% mutate( Clinton_perc = as.integer(str_extract(Clinton, '[:digit:]+')),
+                Trump_perc = as.integer(str_extract(Trump, '[:digit:]+')),
+                Others_Unknown_perc = 100-Clinton_perc-Trump_perc
+               )} %>% select(options, Clinton_perc, Trump_perc, Others_Unknown_perc))
+
+  options_perc <- html %>% html_nodes(".exit-poll__answer-pct-value") %>% html_text() %>% 
+    str_extract('[:digit:]+') %>% as.integer()
+
+  num_respondents <- html %>% html_nodes(".exit-poll-table") %>%
+    html_nodes(".exit-poll-table__metadata") %>% html_text() %>% map_int(function(x)
+      as.integer(str_extract(x,'[:digit:]+')))
+  
+
+  state_df <- cbind(questions_id, questions, num_respondents, responses) %>% as_tibble() %>% 
+        mutate(questions_id = unlist(questions_id), questions = unlist(questions), num_respondents = unlist(num_respondents)) %>% 
+        unnest(responses) %>% mutate(options_perc = options_perc) %>% mutate(options = map2_chr(options, options_perc, function(x,y) str_replace(x, paste0(y,'%'), '')))
+  state_df
+}
+```
+
+```{r eval = FALSE}
+nationwide_url <- "http://www.cnn.com/election/results/exit-polls"
+remDr$navigate(nationwide_url)
+page_source <- remDr$getPageSource()
+webpage <- page_source[[1]]
+```
+
+```{r}
+nationwide_df <- getExitPoll_df(webpage)
+head(nationwide_df)
+```
+
+```{r eval = FALSE}
+states <- read_html(page_source[[1]]) %>% html_node('.select__select') %>% html_children() %>% html_text() 
+states_urls <- sapply(states, function(s) paste('http://www.cnn.com/election/results/exit-polls', str_replace(tolower(s),' ', '-'), 'president', sep = '/'))
+```
+
+```{r eval = FALSE}
+exit_poll_df <- tibble(state = states[-1], url = states_urls[-1]) 
+state_dfs <- list()
+
+for(i in seq_along(exit_poll_df$url)){
+  link <- exit_poll_df$url[i]
+  possibleError <- tryCatch({
+    print(paste("Scraping ", exit_poll_df$state[i]))
+    remDr$navigate(link) 
+    Sys.sleep(3) # set sleeping time for loading
+    page_source <- remDr$getPageSource()
+    Sys.sleep(2) 
+    webpage <- page_source[[1]]
+    state_dfs[[i]] <- getExitPoll_df(webpage)}, error = function(e) e
+  )
+  if(inherits(possibleError, "error")){
+    print(paste("No available exit polling data for ", exit_poll_df$state[i]))
+    state_dfs[[i]] <- data.frame()
+  }
+}
+
+remDr$close()
+rD[["server"]]$stop()
+```
+
+```{r}
+exit_poll_df$state_df <- state_dfs
+exit_poll_cleaned_df <- exit_poll_df %>% unnest(state_df) 
+cat("No available exit polling data in the following states:\n")
+setdiff(exit_poll_df$state, exit_poll_cleaned_df$state) 
+```
+
+```{r}
+nationwide_df$state = "nation"
+nationwide_df$url = "http://www.cnn.com/election/results/exit-polls/national/president"
+nationwide_df$options_perc = as.integer(nationwide_df$options_perc)
+exit_poll_cleaned_df$options_perc = as.integer(exit_poll_cleaned_df$options_perc)
+all_exit_poll_df <- bind_rows(nationwide_df, exit_poll_cleaned_df)
+write_csv(all_exit_poll_df, 'webscrapeCNN.csv', col_names = T)
+```
