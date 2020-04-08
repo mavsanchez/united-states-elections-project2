@@ -106,7 +106,7 @@
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
                 <i class="fas fa-check fa-3x"></i> 
-                <br /> Description 1
+                <br /> Historical Results
               </div>
             </div>
             <img class="img-fluid p-5" src="{{ url_for('static',filename='img/elections/badge.png') }}" alt="">
@@ -119,7 +119,7 @@
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
                 <i class="fas fa-check fa-3x"></i>
-                <br /> Description 2
+                <br /> Trends
               </div>
             </div>
             <img class="img-fluid p-5" src="{{ url_for('static',filename='img/elections/bar-chart.png') }}" alt="">
@@ -132,7 +132,7 @@
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
                 <i class="fas fa-check fa-3x"></i>
-                <br /> Description 3
+                <br /> Votes by Gender
               </div>
             </div>
             <img class="img-fluid p-5" src="{{ url_for('static',filename='img/elections/line-chart.png') }}" alt="">
@@ -145,7 +145,7 @@
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
                 <i class="fas fa-check fa-3x"></i>
-                <br /> Description 4
+                <br /> Votes by Income
               </div>
             </div>
             <img class="img-fluid p-5" src="{{ url_for('static',filename='img/elections/rating.png') }}" alt="">
@@ -158,7 +158,7 @@
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
                 <i class="fas fa-check fa-3x"></i>
-                <br /> Description 5
+                <br /> Search by Location
               </div>
             </div>
             <img class="img-fluid p-5" src="{{ url_for('static',filename='img/elections/pie-chart.png') }}" alt="">
@@ -171,7 +171,7 @@
             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
               <div class="portfolio-item-caption-content text-center text-white">
                 <i class="fas fa-check fa-3x"></i>
-                <br /> Description 6
+                <br /> County Results
               </div>
             </div>
             <img class="img-fluid p-5" src="{{ url_for('static',filename='img/elections/candidates.png') }}" alt="">
@@ -253,7 +253,7 @@
             <div class="row justify-content-center">
               <div class="col-lg-8">
                 <!-- Portfolio Modal - Title -->
-                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Visual 1</h2>
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Historical Results</h2>
                 <!-- Icon Divider -->
                 <div class="divider-custom">
                   <div class="divider-custom-line"></div>
@@ -265,8 +265,8 @@
                 <!-- Portfolio Modal - Image -->
                 <img class="img-fluid rounded mb-5" src="{{ url_for('static',filename='img/elections/badge.png') }}" alt="">
                 <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                <button class="btn btn-secondary" href="#" data-dismiss="modal">
+                <p class="mb-5">Map containing presidential results since 1976</p>
+                <button class="btn btn-secondary" href="/results" data-dismiss="modal">
                   <i class="fas fa-check fa-fw"></i>
                   Go to this visual
                 </button>
@@ -292,7 +292,7 @@
             <div class="row justify-content-center">
               <div class="col-lg-8">
                 <!-- Portfolio Modal - Title -->
-                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Visual 2</h2>
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Trends</h2>
                 <!-- Icon Divider -->
                 <div class="divider-custom">
                   <div class="divider-custom-line"></div>
@@ -304,8 +304,8 @@
                 <!-- Portfolio Modal - Image -->
                 <img class="img-fluid rounded mb-5" src="{{ url_for('static',filename='img/elections/bar-chart.png') }}" alt="">
                 <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                <button class="btn btn-secondary" href="#" data-dismiss="modal">
+                <p class="mb-5">California voting trends since 2004</p>
+                <button class="btn btn-secondary" href="/trends" data-dismiss="modal">
                   <i class="fas fa-check fa-fw"></i>
                   Go to this visual
                 </button>
@@ -331,7 +331,7 @@
             <div class="row justify-content-center">
               <div class="col-lg-8">
                 <!-- Portfolio Modal - Title -->
-                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Visual 3</h2>
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Votes by gender</h2>
                 <!-- Icon Divider -->
                 <div class="divider-custom">
                   <div class="divider-custom-line"></div>
@@ -343,8 +343,8 @@
                 <!-- Portfolio Modal - Image -->
                 <img class="img-fluid rounded mb-5" src="{{ url_for('static',filename='img/elections/line-chart.png') }}" alt="">
                 <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                <button class="btn btn-secondary" href="#" data-dismiss="modal">
+                <p class="mb-5">Demographics graph showing votes by gender</p>
+                <button class="btn btn-secondary" href="/demographics" data-dismiss="modal">
                   <i class="fas fa-check fa-fw"></i>
                   Go to this visual
                 </button>
@@ -370,7 +370,7 @@
             <div class="row justify-content-center">
               <div class="col-lg-8">
                 <!-- Portfolio Modal - Title -->
-                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Visual 4</h2>
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Votes by Income</h2>
                 <!-- Icon Divider -->
                 <div class="divider-custom">
                   <div class="divider-custom-line"></div>
@@ -382,8 +382,8 @@
                 <!-- Portfolio Modal - Image -->
                 <img class="img-fluid rounded mb-5" src="{{ url_for('static',filename='img/elections/rating.png') }}" alt="">
                 <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                <button class="btn btn-secondary" href="#" data-dismiss="modal">
+                <p class="mb-5">Demographics graph showing votes by income</p>
+                <button class="btn btn-secondary" href="/demographics" data-dismiss="modal">
                   <i class="fas fa-check fa-fw"></i>
                   Go to this visual
                 </button>
@@ -409,7 +409,7 @@
             <div class="row justify-content-center">
               <div class="col-lg-8">
                 <!-- Portfolio Modal - Title -->
-                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Visual 5</h2>
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Search by location</h2>
                 <!-- Icon Divider -->
                 <div class="divider-custom">
                   <div class="divider-custom-line"></div>
@@ -421,8 +421,8 @@
                 <!-- Portfolio Modal - Image -->
                 <img class="img-fluid rounded mb-5" src="{{ url_for('static',filename='img/elections/pie-chart.png') }}" alt="">
                 <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                <button class="btn btn-secondary" href="#" data-dismiss="modal">
+                <p class="mb-5">Search by any location in US for 2008-2016 presidential election results</p>
+                <button class="btn btn-secondary" href="/map" data-dismiss="modal">
                   <i class="fas fa-check fa-fw"></i>
                   Go to this visual
                 </button>
@@ -448,7 +448,7 @@
             <div class="row justify-content-center">
               <div class="col-lg-8">
                 <!-- Portfolio Modal - Title -->
-                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Candidates</h2>
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Map</h2>
                 <!-- Icon Divider -->
                 <div class="divider-custom">
                   <div class="divider-custom-line"></div>
@@ -460,8 +460,8 @@
                 <!-- Portfolio Modal - Image -->
                 <img class="img-fluid rounded mb-5" src="{{ url_for('static',filename='img/elections/candidates.png') }}" alt="">
                 <!-- Portfolio Modal - Text -->
-                <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia neque assumenda ipsam nihil, molestias magnam, recusandae quos quis inventore quisquam velit asperiores, vitae? Reprehenderit soluta, eos quod consequuntur itaque. Nam.</p>
-                <button class="btn btn-secondary" href="#" data-dismiss="modal">
+                <p class="mb-5">County-level results in US for 2008-2016 presidential election</p>
+                <button class="btn btn-secondary" href="/map" data-dismiss="modal">
                   <i class="fas fa-check fa-fw"></i>
                   Go to this visual
                 </button>

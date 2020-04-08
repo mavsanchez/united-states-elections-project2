@@ -1,6 +1,17 @@
 {% extends 'base.html' %}
 
 {% block head %}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+    integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+    crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+    integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+    crossorigin=""></script>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<link href="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css" rel="stylesheet" />
+<link rel="stylesheet"
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css"
+    type="text/css" />
 {% endblock %}
 
 {% block page_title %}
@@ -8,8 +19,67 @@
 {% endblock %}
 
 {% block content %}
-<div id="plotname"></div>
+
+<input type="search" id="input-map" class="form-control mb-2" placeholder="Search for a location (zip, name, etc)" />
+
+<!-- <div class="btn-group btn-group-toggle gold" data-toggle="buttons">
+    <label class="btn btn-secondary">
+        <input type="radio" name="options" id="results08" autocomplete="off"> 2016
+    </label>
+    <label class="btn btn-secondary">
+        <input type="radio" name="options" id="results12" autocomplete="off"> 2012
+    </label>
+    <label class="btn btn-secondary">
+        <input type="radio" name="options" id="results16" autocomplete="off"> 2018
+    </label>
+</div> -->
+
+<div class="btn-group align-content-sm-center" role="group" aria-label="Year">
+    <input class="btn btn-secondary" type="button" value="2016" id="results16">
+    <input class="btn btn-secondary" type="button" value="2012" id="results12">
+    <input class="btn btn-secondary" type="button" value="2008" id="results08">
+</div>
+
+<div class="mt-1" id="map"></div>
+
+{% endblock %}
+
+{% block credits_content %}
+
+
+
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h4 class="text-uppercase mt-2">Algolia</h4>
+        <p class="lead mb-2"><img class="img-fluid"
+                src="{{ url_for('static',filename='img/search-by-algolia-light-background.svg') }}"></p>
+    </div>
+</div>
 {% endblock %}
 
 {% block graph_js %}
+
+
+<!-- API key -->
+<script type="text/javascript" src="{{ url_for('static',filename='js/config.js') }}"></script>
+
+<!-- Algolia for the search only version -->
+<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/places.js@1.18.1"></script>
+
+<!-- Heat Logic-->
+<!-- <script type="text/javascript" src="{{ url_for('static',filename='js/just-crime.js') }}"></script> -->
+
+<!-- Chloropleth (Required) -->
+<script type="text/javascript" src="{{ url_for('static',filename='js/choropleth.js') }}"></script>
+
+<!-- Leaflet heatmap plugin-->
+<script type="text/javascript" src="{{ url_for('static',filename='js/leaflet-heat.js') }}"></script>
+
+<!-- MB Chloropleth Logic (Required) -->
+<script type="text/javascript" src="{{ url_for('static',filename='js/result.js') }}"></script>
+
+<!-- Algolia customized elections logic  -->
+<script type="text/javascript" src="{{ url_for('static',filename='js/algolia_search.js') }}"></script>
+
 {% endblock %}
