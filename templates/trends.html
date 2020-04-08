@@ -20,9 +20,9 @@
 {% endblock %}
 
 {% block content %}
-
-<div id="myDiv"></div>
-
+<div class="row justify-content-center">
+<div id="trend"></div>
+</div> 
 {% endblock %}
 
 {% block credits_content %}
@@ -38,6 +38,7 @@
 
 
 <!-- API key -->
+<script type="text/javascript" src="{{ url_for('static',filename='js/config.js') }}"></script>
 <script type="text/javascript" src="{{ url_for('static',filename='js/trends.js') }}"></script>
 
 {% endblock %}

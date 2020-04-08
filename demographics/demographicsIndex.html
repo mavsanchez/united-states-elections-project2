@@ -5,51 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Project 2 Demographics</title>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="{{ url_for('static',filename='js/https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body>
-    <h2>2016 Election Exit Polls (24558 responses)</h2>
-    <div id="bar"></div>
-    <script src="genderBarGraph.js"></script>
-</body>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-</head>
-<body>
-    <div id="bar2"></div>
-    <script src="ageBarGraph.js"></script>
-</body>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-</head>
-<body>
-    <div id="bar3"></div>
-    <script src="raceBarGraph.js"></script>
-</body>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-</head>
-<body>
-    <div id="bar4"></div>
-    <script src="educationBarGraph.js"></script>
-</body>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-</head>
-<body>
-    <div id="bar5"></div>
-    <script src="incomeBarGraph.js"></script>
+    
+    <script type="text/javascript" src="{{ url_for('static',filename='js/genderBarGraph.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/ageBarGraph.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/raceBarGraph.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/educationBarGraph.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static',filename='js/incomeBarGraph.js') }}"></script>
+
 </body>
 </html>
