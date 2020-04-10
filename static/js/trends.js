@@ -89,9 +89,9 @@ let geojsonloc8 = "/static/data/geojson4b.json";
 //         Plotly.newPlot('trend', trace , layout , key);
 //     });
 
-Plotly.d3.json(geojsonloc1, function (redjson) {
+Plotly.d3.json(geojsonloc2, function (redjson) {
 
-    Plotly.d3.json(geojsonloc2, function (bluejson) {
+    Plotly.d3.json(geojsonloc1, function (bluejson) {
 
         Plotly.newPlot('trend1', [{
             type: 'scattermapbox',
@@ -131,9 +131,9 @@ Plotly.d3.json(geojsonloc1, function (redjson) {
 });
 
 
-Plotly.d3.json(geojsonloc3, function (redjson) {
+Plotly.d3.json(geojsonloc4, function (redjson) {
 
-    Plotly.d3.json(geojsonloc4, function (bluejson) {
+    Plotly.d3.json(geojsonloc3, function (bluejson) {
 
         Plotly.newPlot('trend2', [{
             type: 'scattermapbox',
@@ -174,9 +174,9 @@ Plotly.d3.json(geojsonloc3, function (redjson) {
 
 
 
-Plotly.d3.json(geojsonloc5, function (redjson) {
+Plotly.d3.json(geojsonloc6, function (redjson) {
 
-    Plotly.d3.json(geojsonloc6, function (bluejson) {
+    Plotly.d3.json(geojsonloc5, function (bluejson) {
 
         Plotly.newPlot('trend3', [{
             type: 'scattermapbox',
@@ -216,9 +216,9 @@ Plotly.d3.json(geojsonloc5, function (redjson) {
 });
 
 
-Plotly.d3.json(geojsonloc7, function (redjson) {
+Plotly.d3.json(geojsonloc8, function (redjson) {
 
-    Plotly.d3.json(geojsonloc8, function (bluejson) {
+    Plotly.d3.json(geojsonloc7, function (bluejson) {
 
         Plotly.newPlot('trend4', [{
             type: 'scattermapbox',
