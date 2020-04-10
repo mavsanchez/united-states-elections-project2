@@ -43,51 +43,216 @@
 // Plotly.newPlot("trend", trace, layout, {showLink: false});
 // }); 
 
-let geojsonloc = "/static/data/processed_ca.json";
+let geojsonloc1 = "/static/data/geojson1a.json";
+let geojsonloc2 = "/static/data/geojson1b.json";
+let geojsonloc3 = "/static/data/geojson2a.json";
+let geojsonloc4 = "/static/data/geojson2b.json";
+let geojsonloc5 = "/static/data/geojson3a.json";
+let geojsonloc6 = "/static/data/geojson3b.json";
+let geojsonloc7 = "/static/data/geojson4a.json";
+let geojsonloc8 = "/static/data/geojson4b.json";
 
-function filterJSON(json, key, value) {
-    console.log(json);
-    let result = L.geoJson(json, {
-        filter: function (feature, _) {
-            return feature.properties.winner == 1;
-        }
-    });
-    console.log(result);
-    return result;
-}
 
-Plotly.d3.json(geojsonloc, function (geojsondata) {
-    geojsondata_dem = filterJSON(geojsondata, 'winner', 1)
+// Plotly.d3.json(geojsonloc, function (geojsondata) {
+//     geojsondata_dem = filterJSON(geojsondata, 'winner', 1)
     
-    let trace = [{
-        type: 'scattermapbox',
-        lat: [36],
-        lon: [-121]
-    }]
+//     let trace = [{
+//         type: 'scattermapbox',
+//         lat: [36],
+//         lon: [-121]
+//     }]
 
-    let layout = {
-        title: "California Counties Results",
-        height: 600,
-        width: 600,
-        mapbox: {
-            center: {
-                lat: 36,
-                lon: -121
-            },
-            style: 'light',
-            zoom: 4,
-            layers: [
-                {
-                    sourcetype: 'geojson',
-                    source: geojsondata,
-                    type: 'fill',
-                    color: 'rgba(163,22,19,0.8)'
-                }
-            ]
-        }
-    }
+//     let layout = {
+//         title: "California Counties Results",
+//         height: 600,
+//         width: 600,
+//         mapbox: {
+//             center: {
+//                 lat: 36,
+//                 lon: -121
+//             },
+//             style: 'light',
+//             zoom: 4,
+//             layers: [
+//                 {
+//                     sourcetype: 'geojson',
+//                     source: geojsondata,
+//                     type: 'fill',
+//                     color: 'rgba(163,22,19,0.8)'
+//                 }
+//             ]
+//         }
+//     }
 
-    let key = { mapboxAccessToken: API_KEY }
+//     let key = { mapboxAccessToken: API_KEY }
 
-        Plotly.newPlot('trend', trace , layout , key);
+//         Plotly.newPlot('trend', trace , layout , key);
+//     });
+
+Plotly.d3.json(geojsonloc1, function (redjson) {
+
+    Plotly.d3.json(geojsonloc2, function (bluejson) {
+
+        Plotly.newPlot('trend1', [{
+            type: 'scattermapbox',
+            lat: [36],
+            lon: [-121]
+        }], {
+            title: "California Counties 2004 Results",
+            height: 600,
+            width: 600,
+            mapbox: {
+                center: {
+                    lat: 36,
+                    lon: -121
+                },
+                style: 'light',
+                zoom: 4,
+                layers: [
+                    {
+                        sourcetype: 'geojson',
+                        source: redjson,
+                        type: 'fill',
+                        color: 'rgba(163,22,19,0.8)'
+                    },
+                    {
+                        sourcetype: 'geojson',
+                        source: bluejson,
+                        type: 'fill',
+                        color: 'rgba(40,0,113,0.8)'
+                    },
+                ]
+            }
+        }, {
+            mapboxAccessToken: API_KEY
+        });
     });
+
+});
+
+
+Plotly.d3.json(geojsonloc3, function (redjson) {
+
+    Plotly.d3.json(geojsonloc4, function (bluejson) {
+
+        Plotly.newPlot('trend2', [{
+            type: 'scattermapbox',
+            lat: [36],
+            lon: [-121]
+        }], {
+            title: "California Counties 2008 Results",
+            height: 600,
+            width: 600,
+            mapbox: {
+                center: {
+                    lat: 36,
+                    lon: -121
+                },
+                style: 'light',
+                zoom: 4,
+                layers: [
+                    {
+                        sourcetype: 'geojson',
+                        source: redjson,
+                        type: 'fill',
+                        color: 'rgba(163,22,19,0.8)'
+                    },
+                    {
+                        sourcetype: 'geojson',
+                        source: bluejson,
+                        type: 'fill',
+                        color: 'rgba(40,0,113,0.8)'
+                    },
+                ]
+            }
+        }, {
+            mapboxAccessToken: API_KEY
+        });
+    });
+
+});
+
+
+
+Plotly.d3.json(geojsonloc5, function (redjson) {
+
+    Plotly.d3.json(geojsonloc6, function (bluejson) {
+
+        Plotly.newPlot('trend3', [{
+            type: 'scattermapbox',
+            lat: [36],
+            lon: [-121]
+        }], {
+            title: "California Counties 2012 Results",
+            height: 600,
+            width: 600,
+            mapbox: {
+                center: {
+                    lat: 36,
+                    lon: -121
+                },
+                style: 'light',
+                zoom: 4,
+                layers: [
+                    {
+                        sourcetype: 'geojson',
+                        source: redjson,
+                        type: 'fill',
+                        color: 'rgba(163,22,19,0.8)'
+                    },
+                    {
+                        sourcetype: 'geojson',
+                        source: bluejson,
+                        type: 'fill',
+                        color: 'rgba(40,0,113,0.8)'
+                    },
+                ]
+            }
+        }, {
+            mapboxAccessToken: API_KEY
+        });
+    });
+
+});
+
+
+Plotly.d3.json(geojsonloc7, function (redjson) {
+
+    Plotly.d3.json(geojsonloc8, function (bluejson) {
+
+        Plotly.newPlot('trend4', [{
+            type: 'scattermapbox',
+            lat: [36],
+            lon: [-121]
+        }], {
+            title: "California Counties 2016 Results",
+            height: 600,
+            width: 600,
+            mapbox: {
+                center: {
+                    lat: 36,
+                    lon: -121
+                },
+                style: 'light',
+                zoom: 4,
+                layers: [
+                    {
+                        sourcetype: 'geojson',
+                        source: redjson,
+                        type: 'fill',
+                        color: 'rgba(163,22,19,0.8)'
+                    },
+                    {
+                        sourcetype: 'geojson',
+                        source: bluejson,
+                        type: 'fill',
+                        color: 'rgba(40,0,113,0.8)'
+                    },
+                ]
+            }
+        }, {
+            mapboxAccessToken: API_KEY
+        });
+    });
+
+});
